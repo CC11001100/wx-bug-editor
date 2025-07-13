@@ -6,6 +6,10 @@ on:
       - main  # 当main分支有推送时触发
   workflow_dispatch:  # 允许手动触发工作流
 
+# 设置GITHUB_TOKEN的权限
+permissions:
+  contents: write  # 给予写入仓库内容的权限
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
