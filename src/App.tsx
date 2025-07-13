@@ -50,12 +50,13 @@ function App() {
   const [messageContent, setMessageContent] = useState('爸爸')
   const [displayText, setDisplayText] = useState('【肯德基疯狂星期四】V我50，请你吃原味鸡+汉堡+可乐=19.9！👉点击领取优惠券👈 手慢无！错过再等一周！')
   const [callDisplayText, setCallDisplayText] = useState('给文件传输助手打电话')
+  const [callUsername, setCallUsername] = useState('filehelper')  // 新增状态，专门用于存储打电话的微信号
   const [copySuccess, setCopySuccess] = useState(false)
   
   // 当消息类型变更时设置默认值
   useEffect(() => {
-    if (messageType === 'call' && messageContent === '') {
-      setMessageContent('filehelper')
+    if (messageType === 'call') {
+      setCallUsername('filehelper')
       setCallDisplayText('给文件传输助手打电话')
     }
   }, [messageType])
@@ -73,7 +74,7 @@ href="weixin://bizmsgmenu
 ?msgmenucontent=${messageContent}
 &msgmenuid=960">${displayText}</a>`
     } else {
-      return `<a href="weixin://voip/callagain/?username=${messageContent}">${callDisplayText}</a>`
+      return `<a href="weixin://voip/callagain/?username=${callUsername}">${callDisplayText}</a>`
     }
   }
   
@@ -97,6 +98,24 @@ href="weixin://bizmsgmenu
 
   return (
     <div className="container">
+      <div className="video-container">
+        <video 
+          src={import.meta.env.BASE_URL + "demo.mp4"} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          onClick={(e) => {
+            if (document.fullscreenElement) {
+              document.exitFullscreen();
+            } else {
+              e.currentTarget.requestFullscreen();
+            }
+          }}
+        />
+        <div className="video-hint">点击视频全屏观看</div>
+      </div>
+      
       <h1>微信bug消息编辑器</h1>
       
       <div className="preview-section">
@@ -176,8 +195,8 @@ href="weixin://bizmsgmenu
             <div className="form-group">
               <label>微信号：</label>
               <textarea
-                value={messageContent}
-                onChange={(e) => setMessageContent(e.target.value)}
+                value={callUsername}
+                onChange={(e) => setCallUsername(e.target.value)}
                 placeholder="输入要拨打电话的微信号"
                 rows={3}
               />
