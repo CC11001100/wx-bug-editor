@@ -134,30 +134,7 @@ npm run dev -- --host
 
 _**User**_
 
-# 微信bug消息编辑器
 
-- 这是一个微信bug消息编辑器界面
-- 有下面几个字段可以编辑
-    - 消息类型
-        - 强制好友发送指定的文本消息
-        - 强制好友打语音电话
-    - 消息内容
-        - 如果是文本消息的话，就是要发送的文本的内容
-        - 如果是语音电话的话，就是要打给的人的微信号
-    - 在最上面，有个消息预览，下面的编辑会实时显示
-        
-        ```yaml
-        
-        <a href="weixin://voip/callagain/?username=filehelper">给文件传输助手打电话</a >
-        ```
-        
-    
-    ```yaml
-    <a
-    href="weixin://bizmsgmenu
-    ?msgmenucontent=XXX
-    &msgmenuid=960">[微笑]</a>
-    ```
 
 ---
 
