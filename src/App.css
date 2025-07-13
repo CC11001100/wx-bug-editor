@@ -18,14 +18,17 @@
   position: relative;
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16 / 9;
+  max-height: 450px;
+  background-color: #000;
 }
 
 .video-container video {
   width: 100%;
   display: block;
   cursor: pointer;
-  max-height: 300px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #000;
 }
 
 .video-hint {
