@@ -9,6 +9,44 @@
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 2rem;
+  position: relative;
+}
+
+/* GitHub徽标样式 */
+.github-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #24292e;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  /* 创建倒三角形状 */
+  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+  -webkit-clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+}
+
+.github-badge:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+.github-badge:active {
+  transform: scale(0.95);
+}
+
+.github-icon {
+  width: 18px;
+  height: 18px;
+  /* 调整图标位置，使其更靠近右上角 */
+  margin-top: -15px;
+  margin-left: 15px;
 }
 
 .video-container {
@@ -219,6 +257,49 @@ textarea {
   color: #333;
 }
 
+/* 重要提示样式 */
+.important-notice {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  border-left: 4px solid #ff4757;
+}
+
+.important-notice p {
+  margin: 0 0 0.8rem 0;
+  line-height: 1.5;
+}
+
+.important-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.important-notice strong {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.website-url {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.6rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.website-url span {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-weight: 500;
+  margin-left: 0.3rem;
+}
+
 .compatibility-info ul {
   padding-left: 1.5rem;
   margin: 0;
@@ -235,19 +316,41 @@ textarea {
     padding-top: 1rem;
     padding-bottom: 1.5rem;
   }
-  
+
+  .github-badge {
+    width: 50px;
+    height: 50px;
+  }
+
+  .github-icon {
+    width: 14px;
+    height: 14px;
+    margin-top: -12px;
+    margin-left: 12px;
+  }
+
   h1 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
-  
+
   .preview-section,
   .editor-section {
     padding: 1.25rem;
   }
-  
+
   .preset-container {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .important-notice {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .website-url {
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
 }
 
@@ -257,7 +360,19 @@ textarea {
     padding-top: 0.75rem;
     padding-bottom: 1.5rem;
   }
-  
+
+  .github-badge {
+    width: 45px;
+    height: 45px;
+  }
+
+  .github-icon {
+    width: 12px;
+    height: 12px;
+    margin-top: -10px;
+    margin-left: 10px;
+  }
+
   h1 {
     font-size: 1.2rem;
     margin-bottom: 0.75rem;
@@ -294,5 +409,21 @@ textarea {
   .copy-button {
     padding: 0.7rem 1rem;
     font-size: 0.9rem;
+  }
+
+  .important-notice {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .website-url {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
+
+  .website-url span {
+    display: block;
+    margin-top: 0.3rem;
+    margin-left: 0;
   }
 }
